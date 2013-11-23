@@ -1,3 +1,5 @@
+
+
 class MoviesController < ApplicationController
 
   # default homepage
@@ -7,7 +9,8 @@ class MoviesController < ApplicationController
 
   def details
     @movie_id = params[:id]
-    proxy = Movies.new('xxxx')
+    api_key = File.read('config/apikey.txt')
+    proxy = Movies.new(api_key)
     @ping = proxy.Ping
 
     render 'movies/detail'
