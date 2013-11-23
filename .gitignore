@@ -16,3 +16,14 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# Hanssens’ Customs for Ruby
+*.log
+
+# .idea folder - only ignore the following two
+workspace.xml
+tasks.xml
+
+# Mac crap
+.DS_Store
+source/.idea/workspace.xml
