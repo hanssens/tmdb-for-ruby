@@ -47,14 +47,14 @@ class MovieFinder
 end
 
 
-# define the apikey for themoviedb.org
-apikey = "*****"
+# read the apikey from file
+apikey = open("apikey.txt", &:read)
 
 # initialize a new instance of the MovieFinder
 proxy = MovieFinder.new(apikey)
 
 #  FindById
-movie = proxy.FindById(249) #["original_title"]
+movie = proxy.FindById(249)
 print 'Movie found: ' + movie['original_title']
 
 
