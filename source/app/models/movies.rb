@@ -1,6 +1,6 @@
-require 'net/http'	# required for communicating with the REST API
-require 'json' 		# JSON consuming
-require './hashie' 	# Coverts hashes into objects
+#require 'net/http'	# required for communicating with the REST API
+#require 'json' 		# JSON consuming
+#require 'hashie' 	# Coverts hashes into objects
 
 # Wrapper for connecting with TheMovieDb API.
 # Params:
