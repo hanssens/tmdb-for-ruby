@@ -1,6 +1,7 @@
-#require 'net/http'	# required for communicating with the REST API
+require 'net/http'	# required for communicating with the REST API
 #require 'json' 		# JSON consuming
-#require 'hashie' 	# Coverts hashes into objects
+#require 'rubygems'
+#require 'hashie' 	# Converts hashes into objects
 
 # Wrapper for connecting with TheMovieDb API.
 # Params:
@@ -16,19 +17,20 @@ class Movies
     # private function that executes a REST command on the TMDB API
     # and returns the response (as JSON)
     composed_url = "http://api.themoviedb.org/3/#{args}?api_key=#{@api_key}"
-    puts 'Executing : ' + composed_url
+
     response = Net::HTTP.get_response(URI.parse(composed_url))
     raw_data = JSON.parse(response.body)
     #return raw_data
 
     # convert to a Hashie; an anonymous object, based on the JSON response
-    data = Hashie::Mash.new(raw_data)
+    data = ::Hashie::Mash.new raw_data
+
     return data
   end
 
-
+  # Retrieves a movie by TMDB id.
   def FindById(movie_id=200)
-    Execute("movie/#{movie_id}")
+    return Execute("movie/#{movie_id}")
   end
 
   def FindByName
